@@ -30,10 +30,10 @@
 
       posting.done(function(data) {
         var product = data["product"];
-        $('#productName').text(product["name"]);
-        $('#productPrice').text("$" + product["price"]);
-        $('#productDescription').text(product["description"]);
-        $('#productInventory').text(product["inventory"]);
+        $('#productName').text(product.name);
+        $('#productPrice').text("$" + product.price);
+        $('#productDescription').text(product.description);
+        $('#productInventory').text(product.inventory);
       });
     });
   });
