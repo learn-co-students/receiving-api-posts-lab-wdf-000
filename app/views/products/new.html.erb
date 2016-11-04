@@ -14,6 +14,15 @@
   <%= f.submit "submit" %>
 <% end %>
 
+<hr />
+
+<div class="new-product">
+  <p class="product-name"></p>
+  <p class="product-price"></p>
+  <p class="product-description"></p>
+  <p class="product-inventory"></p>
+</div>
+
 <script type="text/javascript" charset="utf-8">
   $(function(){
     $('form').on('submit', function(ev){
@@ -26,7 +35,11 @@
       let posting = $.post('/products', values);
 
       posting.success(function(data){
-        console.log(data)
+        let product = data.product;
+        $('.product-name').text('Product Name: ' + product.name);
+        $('.product-price').text('Price: $' + product.price);
+        $('.product-description').text('Description: ' + product.description);
+        $('.product-inventory').text('Inventory: ' + product.inventory);
       });
     });
   });
