@@ -13,3 +13,21 @@
   <%= f.text_field :inventory %>
   <%= f.submit "submit" %>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function(){
+    $('form').on('submit', function(ev){
+      // hijack submit button and prevent default behavior
+      ev.preventDefault();
+      // 'this' in this context refers to the form element
+      // serialize all form fields and their values
+      let values = $(this).serialize();
+      // store the response of a POST to '/products'
+      let posting = $.post('/products', values);
+
+      posting.success(function(data){
+        console.log(data)
+      });
+    });
+  });
+</script>
