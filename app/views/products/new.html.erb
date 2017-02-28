@@ -15,7 +15,7 @@
 <% end %>
 
 <div id="product">
-  <h2 id="productName"></h2>
+  <h1 id="productName"></h1>
   <p id="productDescription"></p>
   <p id="productPrice"></p>
   <p id="productInventory"></p>
@@ -24,7 +24,6 @@
 <script type="text/javascript" charset="utf-8">
   $(function () {
     $('form').submit(function(event) {
-      //prevent form from submitting the default way
       event.preventDefault();
  
       var values = $(this).serialize();
@@ -35,8 +34,7 @@
         $("#productName").text(product["name"]);
         $("#productDescription").text(product["description"]);
         $("#productPrice").text('$' + product["price"]);
-        $("#productInventory").text(product["inventory"]);
-        
+        $("#productInventory").text(product["inventory"]); 
       });
     });
   });
